@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "example:streams": "node example-streams.mjs README.md",
+    "example:buffers": "node --env-file=.env example-buffers.mjs snyk-patch.png",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "openai": "^4.28.0"
+  }
 }

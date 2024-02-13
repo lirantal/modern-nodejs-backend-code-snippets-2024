@@ -1,7 +1,7 @@
 import { ReadableStream } from "node:stream/web";
 import fs from "fs";
 
-function createReadableStreamFromFile(filePath) {
+export function createReadableStreamFromFile(filePath) {
   const stream = new ReadableStream({
     start(controller) {
       const reader = fs.createReadStream(filePath);
@@ -26,7 +26,7 @@ function createReadableStreamFromFile(filePath) {
   return stream;
 }
 
-async function consumeStreamWithAsyncIterator(stream) {
+export async function consumeStreamWithAsyncIterator(stream) {
   try {
     for await (const chunk of stream) {
       process.stdout.write(chunk);
