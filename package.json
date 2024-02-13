@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "example:streams": "node example-streams.mjs README.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
