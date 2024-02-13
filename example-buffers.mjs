@@ -6,8 +6,27 @@ import OpenAI from "openai";
 const openai = new OpenAI();
 
 const imageBuffer = await readFileToBuffer(process.argv[2]);
-const result = await generateAltTextForImage(imageBuffer);
-console.log(result);
+
+if (isImageTypeValid(imageBuffer)) {
+  const result = await generateAltTextForImage(imageBuffer);
+  console.log(result);
+} else {
+  console.error("Invalid image type");
+}
+
+function isImageTypeValid(imageBuffer) {
+  // png magic number in hex array
+  const pngSignature = Buffer.from([
+    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
+  ]);
+
+  // the passed buffer file signature
+  const fileSignature = imageBuffer.slice(0, 8);
+
+  if (pngSignature.equals(fileSignature)) {
+    return true;
+  }
+}
 
 async function generateAltTextForImage(imageBuffer) {
   const imageInBase64 = imageBuffer.toString("base64");
