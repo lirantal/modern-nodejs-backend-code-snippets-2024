@@ -1,8 +1,4 @@
 {
-  "publishConfig": {
-    "provenance": true,
-    "access": "public"
-  },
   "name": "modern-nodejs-backend-code-snippets-2024",
   "version": "1.0.0",
   "description": "",
@@ -17,5 +13,9 @@
   "license": "MIT",
   "dependencies": {
     "openai": "^4.28.0"
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
   }
 }
